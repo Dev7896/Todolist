@@ -9,18 +9,22 @@ body {
   width: 100%;
   height: 100vh;
   background-color: #e3f4ec;
+  position: relative;
 }
 :root {
   --heading-font-size: xx-large;
   --middle-section-size: xxx-large;
-  --regular-font-size : x-large ;
-  --general-radius : 25px ; 
-  --regular-gap : 8px ;
+  --regular-font-size: x-large;
+  --general-radius: 25px;
+  --regular-gap: 8px;
 }
 .display-center {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.bg-blur {
+  background-color: rgba(0, 0, 0, 0.8);
 }
 header {
   width: 100%;
@@ -40,16 +44,15 @@ header nav {
 }
 main {
   width: 80%;
-  height: 60%;
-  /* background-color: black; */
+  height: auto;
   margin: 20px auto;
+  /* background-color: black; */
 }
-.main-section-one{
-    width: 100%;
-    height: auto;
-    display: flex;
-    flex-flow: column nowrap;
-    /* background-color: black; */
+.main-section-one {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-flow: column nowrap;
 }
 .main-section-one > #current-session {
   font-size: var(--middle-section-size);
@@ -60,84 +63,98 @@ main {
   font-size: var(--heading-font-size);
   font-family: "Playwrite US Trad", serif;
   margin-left: auto;
-
 }
 .main-section-two {
-    width: 100%;
-    height: auto;
-    display: flex;
-    flex-flow: column nowrap;
-    margin-top: 30px;
-
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-flow: column nowrap;
+  margin-top: 30px;
+  /* background-color: black; */
 }
 .main-section-two > .task-box {
-    width: 100%;
-    height: auto;
-    padding: 12px;
-    display: flex;
-    flex-flow: column nowrap;
-    border: 1px solid black;
-    border-radius: var(--general-radius);
-    background-color: transparent;
-    position: relative ;
+  width: 100%;
+  height: auto;
+  padding: 12px;
+  display: flex;
+  flex-flow: column nowrap;
+  border: 1px solid black;
+  border-radius: var(--general-radius);
+  background-color: transparent;
+  position: relative;
 }
 
-.main-section-two > .task-box > #task-box-one{
-    width: 100%;
-    height: auto;
-    display: flex;
-    flex-flow: row nowrap;
-    gap: 10px;
-    align-items: center;
-
+.main-section-two > .task-box > #task-box-one {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-flow: row nowrap;
+  gap: 10px;
+  align-items: center;
 }
-.circle{
-    width: 18px;
-    height: 18px;
-    background-color: black;
-    border: none;
-    border-radius: 100%;
+.circle {
+  width: 18px;
+  height: 18px;
+  background-color: black;
+  border: none;
+  border-radius: 100%;
 }
 
 .main-section-two > .task-box > #task-box-one > .title {
-    font-size: var(--regular-font-size);
-    text-transform: capitalize;
+  font-size: var(--regular-font-size);
+  text-transform: capitalize;
 }
 .edit-button {
-    width: 30px;
-    height: 30px;
-    border: 1px solid black;
-    border-radius: 50%;
-    /* justify-self: flex-end; */
-    margin-left: auto;
-    margin-right: 10px;
+  width: 30px;
+  height: 30px;
+  border: 1px solid black;
+  border-radius: 50%;
+  /* justify-self: flex-end; */
+  margin-left: auto;
+  margin-right: 10px;
 }
 .task-box-two {
-    text-transform: capitalize;
-    width:75% ;
-    height: auto;
-    margin: var(--regular-gap) 0px;
-    display: flex;
-    gap: var(--regular-gap);
-    flex-flow: column nowrap;
-
+  text-transform: capitalize;
+  width: 75%;
+  height: auto;
+  margin: var(--regular-gap) 0px;
+  display: flex;
+  gap: var(--regular-gap);
+  flex-flow: column nowrap;
 }
 .check-button {
-width: 50px;
-height: 50px;
-background-color: black;
-border: none;
-border-radius: 50%;
-position: absolute;
-right: 16px;
-bottom: 26px;
-
-
+  width: 50px;
+  height: 50px;
+  background-color: black;
+  border: none;
+  border-radius: 50%;
+  position: absolute;
+  right: 16px;
+  bottom: 26px;
 }
 .check-button > i {
-    color : white ;
-
+  color: white;
 }
 #priority {
-    text-transform: capitalize;
+  text-transform: capitalize;
+}
+footer {
+  width: 100%;
+  height: auto;
+  background-color: #f8f7f755;
+  position: absolute;
+  bottom: 0px;
+  display: flex;
+  justify-content: space-around;
+  padding: 10px 0px ;
+}
+footer div.footer-parts {
+  width: 80px;
+  height: 80px;
+  background-color: black;
+  border: none;
+  border-radius: 50%;
+}
+footer div i {
+  color: white;
 }

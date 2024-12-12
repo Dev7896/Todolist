@@ -30,4 +30,17 @@ Guide users on how to use the app effectively. Include examples or common scenar
 3. Mark tasks as completed by clicking the checkbox.  
 4. Edit or delete tasks using the respective icons.
 
+---
+## Technologies Used  
+- HTML  
+- CSS  
+- JavaScript  
+- [remixicon](https://remixicon.com/)
+- [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer)
 
+---
+## Contributing  
+Contributions are welcome!  
+-  Fork the repository.  
+-  Create a new branch for your feature/bugfix.  
+-  Submit a pull request with a detailed description of your changes.  

@@ -13,6 +13,14 @@ body {
 :root {
   --heading-font-size: xx-large;
   --middle-section-size: xxx-large;
+  --regular-font-size : x-large ;
+  --general-radius : 25px ; 
+  --regular-gap : 8px ;
+}
+.display-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 header {
   width: 100%;
@@ -54,4 +62,82 @@ main {
   margin-left: auto;
 
 }
+.main-section-two {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-flow: column nowrap;
+    margin-top: 30px;
 
+}
+.main-section-two > .task-box {
+    width: 100%;
+    height: auto;
+    padding: 12px;
+    display: flex;
+    flex-flow: column nowrap;
+    border: 1px solid black;
+    border-radius: var(--general-radius);
+    background-color: transparent;
+    position: relative ;
+}
+
+.main-section-two > .task-box > #task-box-one{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-flow: row nowrap;
+    gap: 10px;
+    align-items: center;
+
+}
+.circle{
+    width: 18px;
+    height: 18px;
+    background-color: black;
+    border: none;
+    border-radius: 100%;
+}
+
+.main-section-two > .task-box > #task-box-one > .title {
+    font-size: var(--regular-font-size);
+    text-transform: capitalize;
+}
+.edit-button {
+    width: 30px;
+    height: 30px;
+    border: 1px solid black;
+    border-radius: 50%;
+    /* justify-self: flex-end; */
+    margin-left: auto;
+    margin-right: 10px;
+}
+.task-box-two {
+    text-transform: capitalize;
+    width:75% ;
+    height: auto;
+    margin: var(--regular-gap) 0px;
+    display: flex;
+    gap: var(--regular-gap);
+    flex-flow: column nowrap;
+
+}
+.check-button {
+width: 50px;
+height: 50px;
+background-color: black;
+border: none;
+border-radius: 50%;
+position: absolute;
+right: 16px;
+bottom: 26px;
+
+
+}
+.check-button > i {
+    color : white ;
+
+}
+#priority {
+    text-transform: capitalize;
+}

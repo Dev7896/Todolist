@@ -26,6 +26,9 @@ body {
 .bg-blur {
   background-color: rgba(0, 0, 0, 0.8);
 }
+.none {
+display: none;
+}
 header {
   width: 100%;
   height: 100px;
@@ -54,7 +57,7 @@ main {
   display: flex;
   flex-flow: column nowrap;
 }
-.main-section-one > #current-session {
+.main-section-one > #current-session , .copy {
   font-size: var(--middle-section-size);
   font-weight: 500;
   /* font-family: "Baloo Bhai 2", serif; */

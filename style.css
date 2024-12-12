@@ -1,0 +1,33 @@
+@import url("https://fonts.googleapis.com/css2?family=Baloo+Bhai+2:wght@400..800&family=Playwrite+US+Trad:wght@100..400&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  width: 100%;
+  height: 100vh;
+  background-color: #e3f4ec;
+}
+:root {
+  --heading-font-size: xx-large;
+  --middle-section-size : xxx-large ;
+}
+header {
+  width: 100%;
+  height: 100px;
+  /* background-color: black; */
+  padding: 0px 30px;
+}
+header nav {
+  width: 100%;
+  /* background-color: black; */
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: "Playwrite US Trad", serif;
+  font-size: var(--heading-font-size);
+}
+

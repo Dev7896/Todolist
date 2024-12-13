@@ -1,5 +1,8 @@
 // getting all the elements here
 const nameElement = document.querySelector(".name");
+const addElemet = document.querySelector('#task-add') ;
+const formElement = document.querySelector('#form') ;
+const emptyElement = document.querySelector('#empty') ;
 
 const allLoadingFunctions = {
   getNameElement: function () {
@@ -18,6 +21,13 @@ const allLoadingFunctions = {
     }
   }
 };
+
+// task adding
+addElemet.addEventListener('click' , ()=>{
+  formElement.classList.remove('none') ;
+  emptyElement.classList.add('none') ;
+})
+
 
 document.addEventListener("DOMContentLoaded", () => {
     // console.log(this)

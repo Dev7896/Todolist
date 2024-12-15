@@ -39,6 +39,24 @@ const allLoadingFunctions = {
     // console.log(timeElement);
     timeElement.innerText = time;
   },
+  getTasks : function(){
+    let noOfTasks = localStorage.getItem('noOfTasks') ;
+    if(!noOfTasks ){
+      localStorage.setItem('noOfTasks' , 0) ;
+      document.querySelector('#tasks').innerText = localStorage.getItem('noOfTasks') ;
+      return ;
+    }
+    document.querySelector('#tasks').innerText = localStorage.getItem('noOfTasks') ;
+
+    if(Number(noOfTasks) > 0){
+      for(let i = 1 ; i <= Number(noOfTasks)  ; i++){
+        let jsonString = localStorage.getItem(`task-${i}`) ;
+        const {taskName , description , priority , deadline} = JSON.parse(jsonString) ;
+        createTaskBox(taskName , description , priority , deadline) ;
+      }
+    }
+
+  }
 };
 
 // page navigation
@@ -54,7 +72,6 @@ addElemet.addEventListener("click", () => {
   emptyElement.classList.add("none");
 });
 
-
 // Form submission
 formElement.addEventListener("submit", (e) => {
   e.preventDefault(); // Prevent default form submission
@@ -69,38 +86,59 @@ formElement.addEventListener("submit", (e) => {
     alert("Please fill all the fields");
     return;
   }
+  // create tax box
+  createTaskBox(taskName , description , priority , deadline) ;
 
-  // Create task box
-  const taskBox = document.createElement("article");
-  taskBox.classList.add("task-box");
-
-  taskBox.innerHTML = `
-    <article id="task-box-one">
-      <div class="circle"></div>
-      <div class="title">${taskName}</div>
-      <div class="edit-button display-center">
-        <i class="ri-edit-line"></i>
-      </div>
-    </article>
-    <article class="task-box-two">
-      <div>${description}</div>
-      <p>Priority: <span>${priority}</span></p>
-      <p>Deadline: <span>${deadline}</span></p>
-    </article>
-    <button class="check-button">
-      <i class="ri-check-double-line ri-lg"></i>
-    </button>
-  `;
-
-  // Append task box to the main section
-  document.querySelector(".main-section-two").appendChild(taskBox);
 
   // Hide the form
   formElement.classList.add("none");
 
   // Clear form fields
   formElement.reset();
+
+  // setting tasks in local storage
+  setTasks(taskName , description , priority , deadline) ;
+  
 });
+
+function createTaskBox(taskName , description , priority , deadline) {
+    // Create task box
+    const taskBox = document.createElement("article");
+    taskBox.classList.add("task-box");
+  
+    taskBox.innerHTML = `
+      <article id="task-box-one">
+        <div class="circle"></div>
+        <div class="title">${taskName}</div>
+        <div class="edit-button display-center">
+          <i class="ri-edit-line"></i>
+        </div>
+      </article>
+      <article class="task-box-two">
+        <div>${description}</div>
+        <p>Priority: <span>${priority}</span></p>
+        <p>Deadline: <span>${deadline}</span></p>
+      </article>
+      <button class="check-button">
+        <i class="ri-check-double-line ri-lg"></i>
+      </button>
+    `;
+  
+    // Append task box to the main section
+    document.querySelector(".main-section-two").appendChild(taskBox);
+}
+
+function setTasks(taskName , description , priority , deadline){
+  let tasks = {
+    taskName : taskName ,
+    description : description ,
+    priority : priority ,
+    deadline : deadline
+  }
+  
+  localStorage.setItem('noOfTasks' , Number(localStorage.getItem('noOfTasks')) + 1) ;
+  localStorage.setItem(`task-${Number(localStorage.getItem('noOfTasks'))}` , JSON.stringify(tasks)) ; 
+}
 
 // Handle "No" button
 noButton.addEventListener("click", () => {
@@ -111,6 +149,7 @@ noButton.addEventListener("click", () => {
 document.addEventListener("DOMContentLoaded", () => {
   allLoadingFunctions.getNameElement();
   allLoadingFunctions.settingDate();
+  allLoadingFunctions.getTasks() ;
 });
 
 nameElement.addEventListener("click", () => {

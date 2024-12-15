@@ -43,7 +43,7 @@
         <i class="ri-file-warning-fill ri-lg"></i>
       </div>
     </footer>
-    <form id="form" method="POST" action="/" class="none">
+    <form id="form" method="POST" class="none">
       <div>
         <label for="task-name">Task Name</label>
         <input type="text" name="task-name" id="task-name" />
@@ -56,7 +56,7 @@
 
       <div>
         <label for="priority">priority</label>
-        <select name="priority" id="priority">
+        <select name="priority" id="priority" value="High">
           <option value="High">High</option>
           <option value="medium">Medium</option>
           <option value="low">Low</option>
@@ -68,8 +68,8 @@
         <input type="date" name="deadline" id="deadline" />
       </div>
       <div class="containing-button">
-        <button class="button-common display-center id="yes">Yes</button>
-        <button class="button-common display-center id="no">No</button> 
+        <button type="submit" class="button-common display-center" id="yes">Yes</button>
+        <button class="button-common display-center" id='no'>No</button> 
       </div>
     </form>
     <script src="script.js"></script>

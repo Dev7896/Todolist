@@ -1,8 +1,10 @@
 // getting all the elements here
 const nameElement = document.querySelector(".name");
-const addElemet = document.querySelector('#task-add') ;
-const formElement = document.querySelector('#form') ;
-const emptyElement = document.querySelector('#empty') ;
+const addElemet = document.querySelector("#task-add");
+const formElement = document.getElementById("form");
+const noButton = document.getElementById("no");
+const emptyElement = document.querySelector("#empty");
+const timeElement = document.querySelector("#time");
 
 const allLoadingFunctions = {
   getNameElement: function () {
@@ -13,28 +15,102 @@ const allLoadingFunctions = {
       nameElement.innerText = name;
     }
   },
-  settingEmpty : function(){
-    const mainElement = document.querySelector('.main-section-two').innerHTML ;
-    console.log(mainElement) ;
-    if(mainElement == '' || mainElement == null || mainElement == undefined){
-        mainElement.innerHTMl = '<h2 class="copy">your task list is empty</h2>' ;
-    }
-  }
+  settingDate: function () {
+    // block of code
+    const date = new Date();
+    const months = [
+      "January",
+      "February",
+      "March",
+      "April",
+      "May",
+      "June",
+      "July",
+      "August",
+      "September",
+      "October",
+      "November",
+      "December",
+    ];
+    let month = months[date.getMonth()];
+    let dateOfMonth = date.getDate();
+    let fullYear = date.getFullYear();
+    let time = `${month} ${dateOfMonth} , ${fullYear}`;
+    // console.log(timeElement);
+    timeElement.innerText = time;
+  },
+};
+
+// page navigation
+const pageNavigation = {
+  homePage: "My Current",
+  pendingTaskPage: "Pending Task",
+  completedTaskPage: "Completed Task",
 };
 
 // task adding
-addElemet.addEventListener('click' , ()=>{
-  formElement.classList.remove('none') ;
-  emptyElement.classList.add('none') ;
-})
+addElemet.addEventListener("click", () => {
+  formElement.classList.remove("none");
+  emptyElement.classList.add("none");
+});
+
+
+// Form submission
+formElement.addEventListener("submit", (e) => {
+  e.preventDefault(); // Prevent default form submission
+
+  const taskName = document.querySelector("#task-name").value.trim();
+  const description = document.querySelector("#description").value.trim();
+  const priority = document.querySelector("#priority").value;
+  const deadline = document.querySelector("#deadline").value;
+
+  // Form validation
+  if (!taskName || !description || !priority || !deadline) {
+    alert("Please fill all the fields");
+    return;
+  }
+
+  // Create task box
+  const taskBox = document.createElement("article");
+  taskBox.classList.add("task-box");
+
+  taskBox.innerHTML = `
+    <article id="task-box-one">
+      <div class="circle"></div>
+      <div class="title">${taskName}</div>
+      <div class="edit-button display-center">
+        <i class="ri-edit-line"></i>
+      </div>
+    </article>
+    <article class="task-box-two">
+      <div>${description}</div>
+      <p>Priority: <span>${priority}</span></p>
+      <p>Deadline: <span>${deadline}</span></p>
+    </article>
+    <button class="check-button">
+      <i class="ri-check-double-line ri-lg"></i>
+    </button>
+  `;
+
+  // Append task box to the main section
+  document.querySelector(".main-section-two").appendChild(taskBox);
+
+  // Hide the form
+  formElement.classList.add("none");
+
+  // Clear form fields
+  formElement.reset();
+});
+
+// Handle "No" button
+noButton.addEventListener("click", () => {
+  formElement.classList.add("none");
+});
 
 
 document.addEventListener("DOMContentLoaded", () => {
-    // console.log(this)
-    allLoadingFunctions.getNameElement() ;
-    allLoadingFunctions.settingEmpty() ;
-
-
+  allLoadingFunctions.getNameElement();
+  allLoadingFunctions.settingDate();
 });
 
 nameElement.addEventListener("click", () => {
